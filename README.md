@@ -23,14 +23,14 @@
 #### Erklärung
 Generiert zwei JSON Dateien:
 + <b>perlinie.json</b>: key ist die Linie, value ist die Statusmeldung, bspw.:<br>
-```
+```json
 {
   "7" : "Unfall an der (H) Heumarkt, folgende Fahrt entfällt: ...",
   "9": "Unfallaufnahme an der (H) Mauritiuskirche beendet, ..."
 }
  ```
 + <b>indexed.json</b>: Array mit allen Statusmeldungen, bspw.:<br>
-```
+```json
 [
   {
     "Linie": "1",
