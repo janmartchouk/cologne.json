@@ -1,0 +1,25 @@
+{
+  "name": "cologne.json",
+  "version": "1.0.0",
+  "description": "REST APIs für Kölner Services",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/realnajan/cologne.json.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/realnajan/cologne.json/issues"
+  },
+  "homepage": "https://github.com/realnajan/cologne.json#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "path": "^0.12.7"
+  }
+}
