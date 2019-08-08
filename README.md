@@ -1,5 +1,5 @@
 # cologne.json
-<sup>(english documentation further down)</sup>
+<sup>[english documentation](#english) further down</sup>
 ## Implementierte services
 + ### [KVB Status](#kvb-status-1)
 <br>
