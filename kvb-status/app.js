@@ -19,32 +19,49 @@ if (args.includes('--no-webserver')) {
 
 var html = fs.readFileSync('./page.html', 'utf8')
 
-var linien = []
-var regExString = new RegExp("(?:"+'<ul class="info-list"><li style="margin-right:5px;"><span class="number red-text">'+")(.*?)(?:"+'<\/span><\/li><\/ul>'+")", "ig"); //set ig flag for global search and case insensitive
 
-var testRE = regExString.exec(html);
-while (testRE != null) {
-	linien.push(testRE[0].slice(82, -17))
-	testRE = regExString.exec(html);
-}
+// var regExString = new RegExp("(?:"+'<ul class="info-list"><li style="margin-right:5px;"><span class="number red-text">'+")(.*?)(?:"+'<\/span><\/li><\/ul>'+")", "ig"); //set ig flag for global search and case insensitive
+
+// var testRE = regExString.exec(html);
+// while (testRE != null) {
+// 	linien.push(testRE[0].slice(82, -17))
+// 	testRE = regExString.exec(html);
+// }
 
 const stoerungen = []
+
+//how many?
 const length = $('td > ul', html).length
 
+
+
+
+//Detect tram lines in the table
+var linien = []
+$('.number', html).toArray().map(item => {
+  linien.push($(item).text());
+});
+console.log(linien)
+
+//Empty arrays for the objects to be pushed in
 const indexed = []
 var perline = {}
 
 for (let i = 0; i<length; i++) {
+
+  //push stoerungen & linien to array
 	stoerungen.push($('td > ul', html)[i].next.data.slice(1, -13))
+
+  //push object to indexed array
 	let iobj = new Object()
 	iobj.linie = linien[i]
 	iobj.stoerung = stoerungen[i]
 	indexed.push(iobj)
-}
-for (let i = 0; i<196; i++) {
-	let obj = new Object()
-	obj.stoerung = stoerungen[i]
-	perline[linien[i]] = (obj)
+
+  //push to perline hash array
+  let obj = new Object()
+  obj.stoerung = stoerungen[i]
+  perline[linien[i]] = (obj)
 }
 
 fs.writeFile("./indexed.json", JSON.stringify(indexed), function(err) {
