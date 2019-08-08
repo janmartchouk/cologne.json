@@ -58,7 +58,7 @@ Generiert zwei JSON Dateien:
 
 # ENGLISH
 ## Implemented services
-+ ### [KVB Status](#kvb-status-1)
++ ### [KVB Status](#kvb-status-3)
 <br>
 
 ## Preparing
